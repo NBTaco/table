@@ -1,3 +1,27 @@
-html{
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:first-child td{
     background-color: aqua;
+    font-weight: bold;
+}    
+  
+tr:nth-child(even) {
+    background-color: gray;
+}
+  
+tr:nth-child(odd) {
+    background-color:rgb(95, 95, 95);
+}
+
+tr:hover{
+    background-color: aquamarine;
 }
