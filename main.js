@@ -43,6 +43,12 @@ table.appendChild(tableBody)
 for(const person of array){
     person.lastname
     const tr = document.createElement("tr")
+
+    tr.addEventListener('click', function(e){
+        console.log('click') 
+        
+    })
+
     tr.innerHTML = person.lastname
     tableBody.appendChild(tr)
 
@@ -74,3 +80,4 @@ for(let i = 0; i< array.length; i++){
 
 }
 */
+
