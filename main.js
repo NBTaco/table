@@ -131,6 +131,8 @@ for(const person of array){
 }
 
 
+
+
 /*
 for(const index in array) {
     array[index]
