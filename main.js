@@ -46,7 +46,12 @@ for(const person of array){
 
     tr.addEventListener('click', function(e){
         console.log('click') 
-        
+        const selectedrow = tableBody.querySelector('.selected')
+        if(selectedrow != undefined)
+        {
+            selectedrow.classList.remove('selected')
+        }
+        e.currentTarget.classList.add('selected')
     })
 
     tr.innerHTML = person.lastname
