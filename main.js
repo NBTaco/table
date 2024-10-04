@@ -1,42 +1,74 @@
-const array = [
+let array = [
     {
         firstname1: 'Géza',
         firstname2: 'Ferenc',
-        lastname: 'Kocsis'
+        lastname: 'Kocsis',
+        married: true,
+        pet: 'kutya'
     },
     {
         firstname1: 'Mária',
         firstname2: 'Júlia',
-        lastname: 'Horváth'
+        lastname: 'Horváth',
+        married: false,
+        pet: 'macska'
     },
     {
         firstname1: 'Ferenc',
-        lastname: 'Balogh'
+        lastname: 'Balogh',
+        married: false,
+        pet: 'teknős'
     },
     {
         firstname1: 'Gábor',
         firstname2: 'Attila',
-        lastname: 'Horváth'
+        lastname: 'Horváth',
+        married: true,
+        pet: 'macska'
     },
 ]
+
+
 
 
 const table = document.createElement("table")
 const tableHeader = document.createElement("thead")
 const tableHeaderRow = document.createElement("tr")
+
+/* Fejléc sorok létrehozása */
 const tableHeaderRowLastname = document.createElement("th")
 tableHeaderRowLastname.innerHTML = "Vezetéknév"
+
 const tableHeaderRowFirstname = document.createElement("th")
 tableHeaderRowFirstname.innerHTML = "Keresztnév"
+
+const tableHeaderRowMarried = document.createElement("th")
+tableHeaderRowMarried.innerHTML = "Házas"
+
+const tableHeaderRowAnimal = document.createElement("th")
+tableHeaderRowAnimal.innerHTML = "Állat"
+/**/ 
+
 tableHeaderRowFirstname.colSpan = 2
 const tableBody = document.createElement("tbody")
 
 
 document.body.appendChild(table)
+
 table.appendChild(tableHeader)
+
 tableHeader.appendChild(tableHeaderRow)
+
+/* Fejléc sorok hozzáadása */
 tableHeaderRow.appendChild(tableHeaderRowLastname)
+
 tableHeaderRow.appendChild(tableHeaderRowFirstname)
+
+tableHeaderRow.appendChild(tableHeaderRowMarried)
+
+tableHeaderRow.appendChild(tableHeaderRowAnimal)
+/***/
+
 table.appendChild(tableBody)
 
 
@@ -61,16 +93,41 @@ for(const person of array){
     td.innerHTML = person.firstname1
     tr.appendChild(td)
 
+    
     if(person.firstname2 === undefined)
     {
         td.colSpan = 2
     }
+
     else
     {
-        const td2 = document.createElement("td2")
+        const td2 = document.createElement("td")
         td2.innerHTML = person.firstname2
-        tr.append(td2)
+        tr.appendChild(td2)
     }
+
+    
+    const td3 = document.createElement("td")
+    td3.innerHTML = person.married
+
+
+    if(td3.innerHTML == "false")
+    {
+        td3.innerHTML = "Nem"
+        tr.appendChild(td3)
+    }
+    else
+    {
+        td3.innerHTML = "Igen"
+        tr.appendChild(td3)
+    }
+
+
+    const td4 = document.createElement("td")
+    td4.innerHTML = person.pet
+    tr.appendChild(td4)
+
+
 }
 
 
