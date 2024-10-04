@@ -130,6 +130,35 @@ for(const person of array){
 
 }
 
+const form = document.getElementById("form")
+form.addEventListener('submit', function(e){
+        e.preventDefault()
+        const lastname = document.getElementById('lastname')
+        const firstname1 = document.getElementById('firstname1')
+        const firstname2 = document.getElementById('firstname2')
+        const married = document.getElementById('married')
+        const pet = document.getElementById('pet')
+
+        const lastnameValue = lastname.value
+        const firstname1Value = firstname1.value
+        const firstname2Value = firstname2.value
+        const marriedChecked = married.checked
+        const petValue = pet.value
+
+        array.push({
+            lastname: lastnameValue,
+            firstname1: firstname1Value,
+            firstname2: firstname2Value,
+            married: marriedChecked,
+            pet: petValue,
+        })
+
+        console.log(array)
+
+
+
+
+})
 
 
 

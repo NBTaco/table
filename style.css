@@ -1,8 +1,13 @@
+html{
+    background-color: rgb(43, 43, 43);
+}
+
 table{
     border-collapse: collapse;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0 0 40px white; 
 }
   
 td, th, tr{
@@ -31,7 +36,88 @@ thead{
     transform: scale(1.1);
     transition: 0.3s;
     border-collapse: collapse;
-    border: 10px rgb(0, 255, 0) dotted;
+    border: 10px rgb(252, 253, 252) solid;
 }
 
 
+#form {
+    max-width: 400px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    border: 1px solid #ffffff; 
+    border-radius: 10px; 
+    background-color: #1e1e1e; 
+    box-shadow: 0 0 100px rgba(255, 255, 255, 0.2); 
+}
+
+
+.field {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block; 
+    font-weight: bold;
+    margin-bottom: 5px; 
+    color: #ffffff; 
+}
+
+input[type="text"], 
+select {
+    width: 100%;
+    padding: 10px;
+    border: none; 
+    border-radius: 4px; 
+    background-color: #d1d0d0; 
+    color: #030303; 
+    box-shadow: 0 0 5px white; 
+}
+
+
+input[type="text"]:focus, 
+select:focus {
+    outline: none; 
+    box-shadow: 0 0 10px rgb(105, 105, 105); 
+}
+
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+
+.error {
+    color: red; 
+    font-size: 0.9em; 
+}
+
+
+button {
+    background-color: #63f2fc; 
+    color: rgb(41, 41, 41); 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px; 
+    text-shadow: 0 0 5px #00ffcc, 
+                 0 0 10px #00ffcc,
+                 0 0 20px #00ffcc;
+}
+
+button:hover {
+    background-color: #ffffff; 
+    animation: pulse-animation 0.5s infinite alternate; 
+}
+
+@keyframes pulse-animation {
+    from {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(0,255,255,1);
+    }
+    
+    to {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(0,255,255,1);
+    }
+}
