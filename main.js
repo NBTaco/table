@@ -94,14 +94,16 @@ form.addEventListener('submit', function(e){
             firstname2Value = undefined
         }
         
+        if (validatefields(lastname, firstname1, pet)){
+            array.push({
+                lastname: lastnameValue,
+                firstname1: firstname1Value,
+                firstname2: firstname2Value,
+                married: marriedChecked,
+                pet: petValue,
+            })     
+        }
 
-        array.push({
-            lastname: lastnameValue,
-            firstname1: firstname1Value,
-            firstname2: firstname2Value,
-            married: marriedChecked,
-            pet: petValue,
-        })
         
         
         RenderTable();
@@ -127,7 +129,7 @@ function RenderTable(){
             }
             e.currentTarget.classList.add('selected')
         })
-    
+        
         tr.innerHTML = person.lastname
         tableBody.appendChild(tr)
     
@@ -166,11 +168,46 @@ function RenderTable(){
     
         
         const td4 = document.createElement("td")
+        
         td4.innerHTML = person.pet
         tr.appendChild(td4)   
     }    
 }
 
+
+function validatefields(lastnamevali, firstname1vali, petvali){
+    const errormessages = form.querySelectorAll('.error')
+
+    for(const error of errormessages)
+    {
+        error.innerHTML = ''
+    }
+
+    let result = true
+
+    if(lastnamevali.value === '')
+    {
+        let error = lastnamevali.parentElement.querySelector('.error')
+        error.innerHTML = 'Vezetéknév kötelező!'
+        result = false
+    }
+
+    else if(firstname1vali.value === '')
+    {
+        let error = firstname1vali.parentElement.querySelector('.error')
+        error.innerHTML = 'Keresztnév kötelező!'
+        result = false
+    }
+
+    else if(petvali.value === '')
+    {
+        let error = petvali.parentElement.querySelector('.error')
+        error.innerHTML = 'Állat kötelező!'
+        result = false
+    }
+
+    return result
+} 
 
 
 
