@@ -32,44 +32,19 @@ let array = [
 
 
 const table = document.createElement("table")
-const tableHeader = document.createElement("thead")
-const tableHeaderRow = document.createElement("tr")
-
-/* Fejléc sorok létrehozása */
-const tableHeaderRowLastname = document.createElement("th")
-tableHeaderRowLastname.innerHTML = "Vezetéknév"
-
-const tableHeaderRowFirstname = document.createElement("th")
-tableHeaderRowFirstname.innerHTML = "Keresztnév"
-
-const tableHeaderRowMarried = document.createElement("th")
-tableHeaderRowMarried.innerHTML = "Házas"
-
-const tableHeaderRowAnimal = document.createElement("th")
-tableHeaderRowAnimal.innerHTML = "Állat"
-/**/ 
-
-tableHeaderRowFirstname.colSpan = 2
-const tableBody = document.createElement("tbody")
-
-
 document.body.appendChild(table)
-
+const tableHeader = document.createElement("thead")
 table.appendChild(tableHeader)
-
+const tableHeaderRow = document.createElement("tr")
 tableHeader.appendChild(tableHeaderRow)
-
-/* Fejléc sorok hozzáadása */
-tableHeaderRow.appendChild(tableHeaderRowLastname)
-
-tableHeaderRow.appendChild(tableHeaderRowFirstname)
-
-tableHeaderRow.appendChild(tableHeaderRowMarried)
-
-tableHeaderRow.appendChild(tableHeaderRowAnimal)
-/***/
-
+const tableBody = document.createElement("tbody")
 table.appendChild(tableBody)
+
+createTableElement("th", "Vezetéknév", tableHeaderRow)
+createTableElement("th", "Keresztnév", tableHeaderRow)
+createTableElement("th", "Házas", tableHeaderRow)
+createTableElement("th", "Állat", tableHeaderRow)
+
 
 
 
@@ -208,6 +183,21 @@ function validatefields(lastnamevali, firstname1vali, petvali){
 
     return result
 } 
+
+
+/**
+ * 
+ * @param {'td'|'th'} celltag 
+ * @param {string} innerHTML 
+ * @param {HTMLTableRowElement} parentElement 
+ * @returns {HTMLTableCellElement}
+ */
+function createTableElement(celltag, innerHTML, parentElement){
+    const cell = document.createElement(celltag)
+    cell.innerHTML = innerHTML
+    parentElement.appendChild(cell)
+    return cell
+}
 
 
 
