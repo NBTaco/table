@@ -31,17 +31,10 @@ let array = [
 
 
 
-const table = document.createElement("table")
-document.body.appendChild(table)
-const tableHeader = document.createElement("thead")
-table.appendChild(tableHeader)
-const tableHeaderRow = document.createElement("tr")
-tableHeader.appendChild(tableHeaderRow)
-const tableBody = document.createElement("tbody")
-table.appendChild(tableBody)
+createHTMLElement('table', 'persontable', document.body)
 
 createTableElement("th", "Vezetéknév", tableHeaderRow)
-createTableElement("th", "Keresztnév", tableHeaderRow)
+createTableElement("th", "Keresztnév", tableHeaderRow).colSpan=2
 createTableElement("th", "Házas", tableHeaderRow)
 createTableElement("th", "Állat", tableHeaderRow)
 
@@ -82,9 +75,10 @@ form.addEventListener('submit', function(e){
         
         
         RenderTable();
-        
 
+        
         console.log(array)
+        form.reset()
 
 })
 
@@ -183,33 +177,4 @@ function validatefields(lastnamevali, firstname1vali, petvali){
 
     return result
 } 
-
-
-/**
- * 
- * @param {'td'|'th'} celltag 
- * @param {string} innerHTML 
- * @param {HTMLTableRowElement} parentElement 
- * @returns {HTMLTableCellElement}
- */
-function createTableElement(celltag, innerHTML, parentElement){
-    const cell = document.createElement(celltag)
-    cell.innerHTML = innerHTML
-    parentElement.appendChild(cell)
-    return cell
-}
-
-
-
-/*
-for(const index in array) {
-    array[index]
-}
-*/
-
-/*
-for(let i = 0; i< array.length; i++){
-
-}
-*/
 
