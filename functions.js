@@ -25,3 +25,12 @@ function createHTMLElementWithParentId(tag, id, parentid){
         createHTMLElement(tag, id, parent)
 }
 
+function renderTableHeader(tr){
+    const parent = document.getElementById(tr)
+    createTableElement('th', 'Vezetéknév', parent)
+    const keresztnev = createTableElement('th', 'Keresztnév', parent)
+    keresztnev.colSpan = 2
+    createTableElement('th', 'házas', parent)
+    createTableElement('th', 'állat', parent)
+}
+

@@ -35,6 +35,7 @@ createHTMLElement('table', 'persontable', document.body)
 createHTMLElementWithParentId('thead', 'personthead', 'persontable')
 createHTMLElementWithParentId('tr', 'persontr', 'personthead')
 createHTMLElementWithParentId('tbody', 'persontbody', 'persontable')
+renderTableHeader('persontr')
 
 
 
