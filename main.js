@@ -37,7 +37,7 @@ createHTMLElementWithParentId('tr', 'persontr', 'personthead')
 createHTMLElementWithParentId('tbody', 'persontbody', 'persontable')
 renderTableHeader('persontr')
 
-
+RenderTable(array);
 
 
 const form = document.getElementById("form")
@@ -70,77 +70,12 @@ form.addEventListener('submit', function(e){
                 pet: petValue,
             })     
         }
-
-        
-        
+    
         RenderTable();
-
-        
         console.log(array)
         form.reset()
 
 })
-
-RenderTable();
-
-function RenderTable(){
-    for(const person of array){
-        person.lastname
-        const tr = document.createElement("tr")
-    
-        tr.addEventListener('click', function(e){
-            console.log('click') 
-            const selectedrow = tableBody.querySelector('.selected')
-            if(selectedrow != undefined)
-            {
-                selectedrow.classList.remove('selected')
-            }
-            e.currentTarget.classList.add('selected')
-        })
-        
-        tr.innerHTML = person.lastname
-    
-        const td = document.createElement("td")
-        td.innerHTML = person.firstname1
-        tr.appendChild(td)
-    
-        
-        if(person.firstname2 === undefined)
-        {
-            td.colSpan = 2
-        }
-    
-        else
-        {
-            const td2 = document.createElement("td")
-            td2.innerHTML = person.firstname2
-            tr.appendChild(td2)
-        }
-    
-        
-        const td3 = document.createElement("td")
-        td3.innerHTML = person.married
-    
-    
-        if(td3.innerHTML == "false")
-        {
-            td3.innerHTML = "Nem"
-            tr.appendChild(td3)
-        }
-        else
-        {
-            td3.innerHTML = "Igen"
-            tr.appendChild(td3)
-        }
-    
-        
-        const td4 = document.createElement("td")
-        
-        td4.innerHTML = person.pet
-        tr.appendChild(td4)   
-    }    
-}
-
 
 function validatefields(lastnamevali, firstname1vali, petvali){
     const errormessages = form.querySelectorAll('.error')
