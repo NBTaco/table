@@ -12,7 +12,14 @@ function createTableElement(celltag, innerHTML, parentElement){
     return cell
 }
 
-
+/**
+ * 
+ * 
+ * @param {string} tag 
+ * @param {string} id 
+ * @param {HTMLElement} parent
+ * @returns {HTMLElement}
+ */
 function createHTMLElement(tag, id, parent){
     const elem = document.createElement(tag)
     elem.id = id;
@@ -20,6 +27,14 @@ function createHTMLElement(tag, id, parent){
 }
 
 
+/**
+ * 
+ * 
+ * @param {string} tag 
+ * @param {string} id
+ * @param {string} parentid 
+ * @returns {HTMLElement | undefined} 
+ */
 function createHTMLElementWithParentId(tag, id, parentid){
     const parent = document.getElementById(parentid)
     if(parent != undefined)
@@ -27,6 +42,11 @@ function createHTMLElementWithParentId(tag, id, parentid){
 }
 
 
+/**
+ * 
+ * 
+ * @param {string} tr
+ */
 function renderTableHeader(tr){
     const parent = document.getElementById(tr)
     createTableElement('th', 'Vezetéknév', parent)
@@ -37,6 +57,11 @@ function renderTableHeader(tr){
 }
 
 
+/**
+ * 
+ * 
+ * @param {Array} personlist 
+ */
 function RenderTable(personlist){
     const tableBody = document.getElementById("persontbody")
     tableBody.innerHTML = ''
