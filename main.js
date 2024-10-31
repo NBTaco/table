@@ -32,11 +32,9 @@ let array = [
 
 
 createHTMLElement('table', 'persontable', document.body)
-
-createTableElement("th", "Vezetéknév", tableHeaderRow)
-createTableElement("th", "Keresztnév", tableHeaderRow).colSpan=2
-createTableElement("th", "Házas", tableHeaderRow)
-createTableElement("th", "Állat", tableHeaderRow)
+createHTMLElementWithParentId('thead', 'personthead', 'persontable')
+createHTMLElementWithParentId('tr', 'persontr', 'personthead')
+createHTMLElementWithParentId('tbody', 'persontbody', 'persontable')
 
 
 
@@ -100,7 +98,6 @@ function RenderTable(){
         })
         
         tr.innerHTML = person.lastname
-        tableBody.appendChild(tr)
     
         const td = document.createElement("td")
         td.innerHTML = person.firstname1

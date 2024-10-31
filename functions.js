@@ -19,4 +19,9 @@ function createHTMLElement(tag, id, parent){
     parent.appendChild(elem)
 }
 
+function createHTMLElementWithParentId(tag, id, parentid){
+    const parent = document.getElementById(parentid)
+    if(parent != undefined)
+        createHTMLElement(tag, id, parent)
+}
 
